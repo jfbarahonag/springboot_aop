@@ -26,4 +26,12 @@ public class GreetingController {
       );
   }
   
+  @PostMapping("/bye")
+  public ResponseEntity<?> bye() {
+      
+      return ResponseEntity.ok().body(
+        Collections.singletonMap("bye", greetingService.sayGoodBye("Felipe"))
+      );
+  }
+  
 }

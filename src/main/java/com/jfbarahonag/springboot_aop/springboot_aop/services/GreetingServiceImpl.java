@@ -14,4 +14,9 @@ public class GreetingServiceImpl implements GreetingService {
     return builder.toString();
   }
 
+  @Override
+  public String sayGoodBye(String name) {
+    throw new UnsupportedOperationException("Unimplemented method 'sayGoodBye'");
+  }
+
 }
