@@ -18,7 +18,7 @@ public class GreetingController {
 
   @Autowired
   private GreetingService greetingService;
-  @PostMapping("/single")
+  @PostMapping("")
   public ResponseEntity<?> greeting() {
       
       return ResponseEntity.ok().body(
