@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class GreetingAspect {
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @Before("execution(String com.jfbarahonag.springboot_aop.springboot_aop.services.GreetingService.sayHello(..))")
+  @Before("execution(String com.jfbarahonag.springboot_aop.springboot_aop.services.GreetingService.*(..))")
   public void loggerBefore(JoinPoint joinPoint) {
 
     String method = joinPoint.getSignature().getName();
