@@ -6,7 +6,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -19,10 +18,7 @@ public class GreetingFooAspect {
 
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @Pointcut("execution(* com.jfbarahonag.springboot_aop.springboot_aop.services.GreetingService.*(..))")
-  private void greetingLoggerFooPointcut() {}
-
-  @Before("greetingLoggerFooPointcut()")
+  @Before("GreetingServicePointcuts.greetingLoggerFooPointcut()")
   public void loggerBefore(JoinPoint joinPoint) {
 
     String method = joinPoint.getSignature().getName();
@@ -31,7 +27,7 @@ public class GreetingFooAspect {
     logger.info("[Foo] Antes: " + method + " con los argumentos " + args);
   }
   
-  @After("greetingLoggerFooPointcut()")
+  @After("GreetingServicePointcuts.greetingLoggerFooPointcut()")
   public void loggerAfter(JoinPoint joinPoint) {
 
     String method = joinPoint.getSignature().getName();
